@@ -1,0 +1,26 @@
+spring:
+  cloud:
+    config:
+      uri: http://localhost:8888
+  profiles:
+    active: DEV2
+
+
+management:
+  contextPath: /actuator
+  endpoints:
+    web:
+      cors:
+        allowed-origins: "http://localhost:4200"
+        allowed-methods: GET, POST, PATCH, PUT, DELETE, OPTIONS, HEAD
+        max-age: 3600
+        allowed-headers: "Requestor-Type"
+        exposed-headers: "X-Get-Header"
+      exposure:
+        include: health, refresh, logger
+  endpoint:
+    health:
+      show-details : ALWAYS
+
+
+
